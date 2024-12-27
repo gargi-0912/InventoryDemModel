@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Demand Prediction</title>
+</head>
+<body>
+    <h1>Welcome to Inventory Demand Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="festival">Festival:</label>
+        <select id="festival" name="festival" required>
+            {% for festival in festivals %}
+            <option value="{{ festival }}">{{ festival }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="inventory">Inventory Type:</label>
+        <select id="inventory" name="inventory" required>
+            {% for inventory in inventories %}
+            <option value="{{ inventory }}">{{ inventory }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <button type="submit">Predict Demand</button>
+    </form>
+</body>
+</html>
